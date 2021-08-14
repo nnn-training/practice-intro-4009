@@ -22,3 +22,7 @@ const socket = io('http://localhost:8000');
 socket.on('server-status', (data) => {
   loadavg.text(data.loadavg.toString());
 });
+// WebSocket接続時のイベント
+socket.on('connect', () => { console.log('接続しました') });
+// WebSocket切断時のイベント
+socket.on('disconnect', () => { console.log('切断しました') });
