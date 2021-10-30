@@ -35,6 +35,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var photosRouter = require('./routes/photos');
 var serverStatusRouter = require('./routes/server-status');
+const { Socket } = require('dgram');
 
 var app = express();
 app.use(helmet());
