@@ -22,3 +22,12 @@ const socket = io('http://localhost:8000');
 socket.on('server-status', (data) => {
   loadavg.text(data.loadavg.toString());
 });
+
+socket.on('connect',()=> {
+  console.log('%c接続しました','color:green; font-size: x-large');
+});
+
+// reasonは切断理由
+socket.on('disconnect',(reason)=> {
+  console.log(`${reason}のため切断しました`);
+});
