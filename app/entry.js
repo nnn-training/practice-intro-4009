@@ -19,6 +19,13 @@ const loadavg = $('#loadavg');
 
 import io from 'socket.io-client';
 const socket = io('http://localhost:8000');
+
 socket.on('server-status', (data) => {
   loadavg.text(data.loadavg.toString());
+});
+socket.on('connect', () => {
+  console.info('Websocketのプッシュ通信の接続が確立されました。');
+});
+socket.on('disconnect', () => {
+  console.info('websocketのプッシュ通信の接続が解除されました。');
 });
