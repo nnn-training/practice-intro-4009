@@ -101,3 +101,7 @@ io.on('connection', function (socket) {
   setInterval(emitServerStatus, 10, socket);
   console.log('接続がありました！');
 });
+
+
+
+
