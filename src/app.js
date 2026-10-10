@@ -127,6 +127,11 @@ function emitServerStatus(socket) {
 }
 
 io.on("connection", (socket) => {
-  setInterval(emitServerStatus, 10, socket);
+  const id = setInterval(emitServerStatus, 10, socket);
   console.log("接続がありました！");
+
+  socket.on("disconnect", (reason) => {
+    clearInterval(id);
+    console.log(`切断されました: ${reason}`);
+  });
 });
